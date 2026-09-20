@@ -24,6 +24,7 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+
     font-family: Arial, sans-serif;
 
     background:
@@ -48,6 +49,7 @@ body {
 
 body::before {
     content: "";
+
     position: fixed;
 
     width: 500px;
@@ -55,14 +57,15 @@ body::before {
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.20);
+    background: rgba(255,255,255,0.20);
 
     filter: blur(100px);
 
     top: -200px;
     left: -200px;
 
-    animation: backgroundGlow 8s infinite alternate;
+    animation:
+        backgroundGlow 8s infinite alternate;
 
     pointer-events: none;
 }
@@ -70,11 +73,11 @@ body::before {
 @keyframes backgroundGlow {
 
     from {
-        transform: translate(0, 0);
+        transform: translate(0,0);
     }
 
     to {
-        transform: translate(250px, 250px);
+        transform: translate(250px,250px);
     }
 }
 
@@ -104,22 +107,25 @@ body::before {
 
     z-index: 10;
 
-    animation: containerAppear 0.8s ease;
-
+    animation:
+        containerAppear 0.8s ease;
 }
 
 @keyframes containerAppear {
 
     from {
         opacity: 0;
-        transform: scale(0.85) translateY(30px);
+        transform:
+            scale(0.85)
+            translateY(30px);
     }
 
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform:
+            scale(1)
+            translateY(0);
     }
-
 }
 
 
@@ -133,8 +139,8 @@ h1 {
 
     margin-bottom: 10px;
 
-    animation: titleHeartbeat 2.5s infinite;
-
+    animation:
+        titleHeartbeat 2.5s infinite;
 }
 
 @keyframes titleHeartbeat {
@@ -146,7 +152,6 @@ h1 {
     50% {
         transform: scale(1.03);
     }
-
 }
 
 h2 {
@@ -154,7 +159,9 @@ h2 {
 }
 
 p {
+
     color: #555;
+
     font-size: 17px;
 }
 
@@ -195,33 +202,25 @@ button {
         box-shadow 0.25s ease;
 
     box-shadow:
-        0 5px 15px rgba(255,79,129,0.25);
-
+        0 5px 15px
+        rgba(255,79,129,0.25);
 }
-
-
-/* button hover */
 
 button:hover {
 
-    transform: translateY(-3px) scale(1.04);
+    transform:
+        translateY(-3px)
+        scale(1.04);
 
     box-shadow:
-        0 10px 25px rgba(255,79,129,0.40);
-
+        0 10px 25px
+        rgba(255,79,129,0.40);
 }
-
-
-/* button click */
 
 button:active {
 
     transform: scale(0.92);
-
 }
-
-
-/* button shine */
 
 button::after {
 
@@ -244,13 +243,12 @@ button::after {
         );
 
     transform: skewX(-20deg);
-
 }
 
 button:hover::after {
 
-    animation: buttonShine 0.7s;
-
+    animation:
+        buttonShine 0.7s;
 }
 
 @keyframes buttonShine {
@@ -262,9 +260,7 @@ button:hover::after {
     to {
         left: 130%;
     }
-
 }
-
 
 .back-btn {
 
@@ -274,7 +270,6 @@ button:hover::after {
             #777,
             #555
         );
-
 }
 
 
@@ -283,14 +278,13 @@ button:hover::after {
 ========================================================= */
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .fade-in {
 
     animation:
         pageEnter 0.65s ease;
-
 }
 
 @keyframes pageEnter {
@@ -302,7 +296,6 @@ button:hover::after {
         transform:
             translateY(30px)
             scale(0.96);
-
     }
 
     to {
@@ -312,9 +305,7 @@ button:hover::after {
         transform:
             translateY(0)
             scale(1);
-
     }
-
 }
 
 
@@ -346,54 +337,7 @@ button:hover::after {
     position: relative;
 
     overflow: hidden;
-
 }
-
-
-/* card shine */
-
-.option-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 80%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.7),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-}
-
-.option-card:hover::before {
-
-    animation: cardShine 0.8s;
-
-}
-
-@keyframes cardShine {
-
-    from {
-        left: -120%;
-    }
-
-    to {
-        left: 130%;
-    }
-
-}
-
 
 .option-card:hover {
 
@@ -402,8 +346,8 @@ button:hover::after {
         scale(1.02);
 
     box-shadow:
-        0 12px 30px rgba(255,79,129,0.20);
-
+        0 12px 30px
+        rgba(255,79,129,0.20);
 }
 
 
@@ -417,13 +361,16 @@ button:hover::after {
 
     transition:
         transform 0.4s ease,
-        box-shadow 0.4s ease,
-        background 0.4s ease;
-
+        box-shadow 0.4s ease;
 }
 
+.song-card h3 {
 
-/* active song */
+    color: #ff4f81;
+
+    transition:
+        transform 0.3s;
+}
 
 .song-playing {
 
@@ -431,50 +378,35 @@ button:hover::after {
 
     animation:
         songPulse 2s infinite;
-
 }
 
+.song-playing h3 {
+
+    transform: scale(1.08);
+}
 
 @keyframes songPulse {
 
     0%,100% {
 
         box-shadow:
-            0 0 10px rgba(255,79,129,0.25);
-
+            0 0 10px
+            rgba(255,79,129,0.25);
     }
 
     50% {
 
         box-shadow:
-            0 0 35px rgba(255,79,129,0.70);
-
+            0 0 35px
+            rgba(255,79,129,0.70);
     }
-
 }
-
-
-.song-card h3 {
-
-    color: #ff4f81;
-
-    transition: transform 0.3s;
-
-}
-
-.song-playing h3 {
-
-    transform: scale(1.08);
-
-}
-
 
 audio {
 
     width: 100%;
 
     margin-top: 10px;
-
 }
 
 
@@ -503,20 +435,25 @@ audio {
 
     line-height: 1.6;
 
-    animation: loveNoteGlow 3s infinite;
-
+    animation:
+        loveNoteGlow 3s infinite;
 }
 
 @keyframes loveNoteGlow {
 
     0%,100% {
-        box-shadow: 0 0 10px rgba(255,79,129,0.1);
+
+        box-shadow:
+            0 0 10px
+            rgba(255,79,129,0.1);
     }
 
     50% {
-        box-shadow: 0 0 25px rgba(255,79,129,0.3);
-    }
 
+        box-shadow:
+            0 0 25px
+            rgba(255,79,129,0.3);
+    }
 }
 
 
@@ -550,18 +487,13 @@ audio {
     z-index: 100;
 
     overflow: hidden;
-
 }
-
-
-/* active */
 
 #romanticAnimation.active {
 
     opacity: 1;
 
     visibility: visible;
-
 }
 
 
@@ -587,7 +519,6 @@ audio {
 
     animation:
         romanticText 2s infinite alternate;
-
 }
 
 @keyframes romanticText {
@@ -599,7 +530,6 @@ audio {
     to {
         transform: scale(1.04);
     }
-
 }
 
 .romantic-text h2 {
@@ -609,7 +539,6 @@ audio {
     font-size: 35px;
 
     margin: 0;
-
 }
 
 .romantic-text p {
@@ -617,7 +546,6 @@ audio {
     color: white;
 
     font-size: 18px;
-
 }
 
 
@@ -637,9 +565,7 @@ audio {
     pointer-events: none;
 
     z-index: 999;
-
 }
-
 
 @keyframes floatHeart {
 
@@ -651,13 +577,10 @@ audio {
             rotate(0deg);
 
         opacity: 0;
-
     }
 
     15% {
-
         opacity: 1;
-
     }
 
     100% {
@@ -668,9 +591,7 @@ audio {
             rotate(25deg);
 
         opacity: 0;
-
     }
-
 }
 
 
@@ -699,7 +620,6 @@ audio {
     pointer-events: none;
 
     z-index: 1000;
-
 }
 
 @keyframes sparkleAnim {
@@ -711,7 +631,6 @@ audio {
             rotate(0deg);
 
         opacity: 0;
-
     }
 
     50% {
@@ -721,7 +640,6 @@ audio {
             rotate(180deg);
 
         opacity: 1;
-
     }
 
     100% {
@@ -731,14 +649,12 @@ audio {
             rotate(360deg);
 
         opacity: 0;
-
     }
-
 }
 
 
 /* =========================================================
-   CLICK HEART BURST
+   CLICK HEART
 ========================================================= */
 
 .click-heart {
@@ -752,8 +668,8 @@ audio {
     font-size: 22px;
 
     animation:
-        clickHeartAnimation 1s ease-out forwards;
-
+        clickHeartAnimation 1s
+        ease-out forwards;
 }
 
 @keyframes clickHeartAnimation {
@@ -765,7 +681,6 @@ audio {
             scale(0.2);
 
         opacity: 1;
-
     }
 
     100% {
@@ -779,9 +694,7 @@ audio {
             rotate(30deg);
 
         opacity: 0;
-
     }
-
 }
 
 
@@ -796,7 +709,9 @@ audio {
     width: 20px;
     height: 20px;
 
-    border: 3px solid rgba(255,79,129,0.8);
+    border:
+        3px solid
+        rgba(255,79,129,0.8);
 
     border-radius: 50%;
 
@@ -809,8 +724,8 @@ audio {
         scale(0);
 
     animation:
-        rippleAnimation 0.8s ease-out forwards;
-
+        rippleAnimation 0.8s
+        ease-out forwards;
 }
 
 @keyframes rippleAnimation {
@@ -822,78 +737,13 @@ audio {
             scale(8);
 
         opacity: 0;
-
     }
-
 }
 
 
 /* =========================================================
    SONG THEMES
 ========================================================= */
-
-
-/* MAJBOOR */
-
-.theme-majboor {
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(180,100,255,0.45),
-            rgba(80,30,120,0.2),
-            rgba(0,0,0,0.35)
-        ) !important;
-
-}
-
-
-/* MESLE TO */
-
-.theme-mesle {
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(70,170,255,0.45),
-            rgba(20,80,160,0.18),
-            rgba(0,0,0,0.35)
-        ) !important;
-
-}
-
-
-/* PEHLE BHI MAIN */
-
-.theme-pehle {
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,70,100,0.50),
-            rgba(150,20,50,0.18),
-            rgba(0,0,0,0.35)
-        ) !important;
-
-}
-
-
-/* KHARIYAT */
-
-.theme-khariyat {
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,180,190,0.55),
-            rgba(255,80,130,0.20),
-            rgba(70,10,40,0.35)
-        ) !important;
-
-}
-
-
-/* AHOO */
 
 .theme-ahoo {
 
@@ -904,11 +754,7 @@ audio {
             rgba(180,30,130,0.18),
             rgba(0,0,0,0.35)
         ) !important;
-
 }
-
-
-/* JONI JONOM */
 
 .theme-joni {
 
@@ -919,7 +765,50 @@ audio {
             rgba(180,120,20,0.20),
             rgba(0,0,0,0.35)
         ) !important;
+}
 
+.theme-kahani {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(160,200,255,0.45),
+            rgba(40,90,140,0.18),
+            rgba(0,0,0,0.35)
+        ) !important;
+}
+
+.theme-khariyat {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,180,190,0.55),
+            rgba(255,80,130,0.20),
+            rgba(70,10,40,0.35)
+        ) !important;
+}
+
+.theme-mesle {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70,170,255,0.45),
+            rgba(20,80,160,0.18),
+            rgba(0,0,0,0.35)
+        ) !important;
+}
+
+.theme-pehle {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,70,100,0.50),
+            rgba(150,20,50,0.18),
+            rgba(0,0,0,0.35)
+        ) !important;
 }
 
 
@@ -930,37 +819,25 @@ audio {
 @media(max-width:600px) {
 
     .container {
-
         padding: 22px;
-
     }
 
     h1 {
-
         font-size: 27px;
-
     }
 
     h2 {
-
         font-size: 23px;
-
     }
 
     button {
-
         padding: 13px 18px;
-
         font-size: 15px;
-
     }
 
     .romantic-text h2 {
-
         font-size: 28px;
-
     }
-
 }
 
 </style>
@@ -971,8 +848,9 @@ audio {
 
 
 <!-- ======================================================
-     FULL SCREEN ROMANTIC ANIMATION
+     ROMANTIC ANIMATION
 ====================================================== -->
+
 <div id="romanticAnimation">
 
     <div class="romantic-text">
@@ -990,6 +868,9 @@ audio {
 </div>
 
 
+<!-- ======================================================
+     MAIN CONTAINER
+====================================================== -->
 
 <div class="container">
 
@@ -1029,7 +910,6 @@ audio {
 </div>
 
 
-
 <!-- ======================================================
      STEP 2
 ====================================================== -->
@@ -1040,47 +920,42 @@ audio {
         What would you like, Sara? 🍴❤️
     </h2>
 
-    <div class="option-card"
-         onclick="nextStep('burgerStep')">
-
+    <div
+        class="option-card"
+        onclick="nextStep('burgerStep')"
+    >
         🍔 Burger
-
     </div>
 
-
-    <div class="option-card"
-         onclick="nextStep('canteenStep')">
-
+    <div
+        class="option-card"
+        onclick="nextStep('canteenStep')"
+    >
         🍱 Canteen Plate
-
     </div>
 
-
-    <div class="option-card"
-         onclick="nextStep('roomStep')">
-
+    <div
+        class="option-card"
+        onclick="nextStep('roomStep')"
+    >
         👩‍🍳 Cook In Room
-
     </div>
 
-
-    <button class="back-btn"
-            onclick="backToMenu()">
-
+    <button
+        class="back-btn"
+        onclick="backToMenu()"
+    >
         ← Back
-
     </button>
 
 </div>
-
 
 
 <!-- ======================================================
      BURGER
 ====================================================== -->
 
-<div id="burgerStep"
-     class="hidden fade-in">
+<div id="burgerStep" class="hidden fade-in">
 
     <h2>
         Choose Your Burger 🍔
@@ -1100,23 +975,21 @@ audio {
 
     <br>
 
-    <button class="back-btn"
-            onclick="goBackToStep('step2')">
-
+    <button
+        class="back-btn"
+        onclick="goBackToStep('step2')"
+    >
         ← Back
-
     </button>
 
 </div>
-
 
 
 <!-- ======================================================
      BURGER QUANTITY
 ====================================================== -->
 
-<div id="burgerQuantity"
-     class="hidden fade-in">
+<div id="burgerQuantity" class="hidden fade-in">
 
     <h2>
         How Many Burgers? 🍔
@@ -1140,23 +1013,21 @@ audio {
 
     <br>
 
-    <button class="back-btn"
-            onclick="goBackToStep('burgerStep')">
-
+    <button
+        class="back-btn"
+        onclick="goBackToStep('burgerStep')"
+    >
         ← Back
-
     </button>
 
 </div>
-
 
 
 <!-- ======================================================
      DRINK
 ====================================================== -->
 
-<div id="drinkStep"
-     class="hidden fade-in">
+<div id="drinkStep" class="hidden fade-in">
 
     <h2>
         Choose Your Drink 🥤
@@ -1176,23 +1047,21 @@ audio {
 
     <br>
 
-    <button class="back-btn"
-            onclick="goBackToStep('burgerQuantity')">
-
+    <button
+        class="back-btn"
+        onclick="goBackToStep('burgerQuantity')"
+    >
         ← Back
-
     </button>
 
 </div>
-
 
 
 <!-- ======================================================
      CANTEEN
 ====================================================== -->
 
-<div id="canteenStep"
-     class="hidden fade-in">
+<div id="canteenStep" class="hidden fade-in">
 
     <h2>
         Choose Your Vegetables 🥬
@@ -1208,23 +1077,21 @@ audio {
 
     <br>
 
-    <button class="back-btn"
-            onclick="goBackToStep('step2')">
-
+    <button
+        class="back-btn"
+        onclick="goBackToStep('step2')"
+    >
         ← Back
-
     </button>
 
 </div>
-
 
 
 <!-- ======================================================
      EGGS
 ====================================================== -->
 
-<div id="eggStep"
-     class="hidden fade-in">
+<div id="eggStep" class="hidden fade-in">
 
     <h2>
         Eggs? 🥚
@@ -1241,13 +1108,11 @@ audio {
 </div>
 
 
-
 <!-- ======================================================
      NOODLES
 ====================================================== -->
 
-<div id="noodleStep"
-     class="hidden fade-in">
+<div id="noodleStep" class="hidden fade-in">
 
     <h2>
         Noodles? 🍜
@@ -1264,13 +1129,11 @@ audio {
 </div>
 
 
-
 <!-- ======================================================
      SPICE
 ====================================================== -->
 
-<div id="spiceStep"
-     class="hidden fade-in">
+<div id="spiceStep" class="hidden fade-in">
 
     <h2>
         How Spicy? 🌶️
@@ -1291,13 +1154,11 @@ audio {
 </div>
 
 
-
 <!-- ======================================================
      ROOM
 ====================================================== -->
 
-<div id="roomStep"
-     class="hidden fade-in">
+<div id="roomStep" class="hidden fade-in">
 
     <h2>
         What Should I Cook For You? 👩‍🍳❤️
@@ -1321,23 +1182,21 @@ audio {
 
     <br>
 
-    <button class="back-btn"
-            onclick="goBackToStep('step2')">
-
+    <button
+        class="back-btn"
+        onclick="goBackToStep('step2')"
+    >
         ← Back
-
     </button>
 
 </div>
 
 
-
 <!-- ======================================================
-     FINAL
+     FINAL ORDER
 ====================================================== -->
 
-<div id="finalStep"
-     class="hidden fade-in">
+<div id="finalStep" class="hidden fade-in">
 
     <h2>
         Your Special Order ❤️
@@ -1357,21 +1216,17 @@ audio {
     </div>
 
     <button onclick="backToMenu()">
-
         🏠 Back To Main Menu
-
     </button>
 
 </div>
-
 
 
 <!-- ======================================================
      LOVE ONLY
 ====================================================== -->
 
-<div id="loveOnly"
-     class="hidden fade-in">
+<div id="loveOnly" class="hidden fade-in">
 
     <h2>
         Then You Don't Need Food ❤️
@@ -1385,21 +1240,17 @@ audio {
     </div>
 
     <button onclick="backToMenu()">
-
         🏠 Back To Main Menu
-
     </button>
 
 </div>
 
 
-
 <!-- ======================================================
-     MUSIC
+     MUSIC PAGE
 ====================================================== -->
 
-<div id="musicPage"
-     class="hidden fade-in">
+<div id="musicPage" class="hidden fade-in">
 
     <h2>
         🎵 Our Special Songs ❤️
@@ -1410,113 +1261,25 @@ audio {
     </p>
 
 
+    <!-- ==================================================
+         AHOO
+    ================================================== -->
 
-    <!-- MAJBOOR -->
-
-    <div class="option-card song-card"
-         data-song="majboor">
-
-        <h3>
-            💜 Majboor
-        </h3>
-
-        <audio controls>
-
-            <source
-                src="songs/majboor%20(2).mp3"
-                type="audio/mpeg">
-
-            Your browser does not support audio.
-
-        </audio>
-
-    </div>
-
-
-
-    <!-- MESLE TO -->
-
-    <div class="option-card song-card"
-         data-song="mesle">
-
-        <h3>
-            💙 Mesle To
-        </h3>
-
-        <audio controls>
-
-            <source
-                src="songs/mesle%20to.mp3"
-                type="audio/mpeg">
-
-            Your browser does not support audio.
-
-        </audio>
-
-    </div>
-
-
-
-    <!-- PEHLE BHI MAIN -->
-
-    <div class="option-card song-card"
-         data-song="pehle">
-
-        <h3>
-            ❤️ Pehle Bhi Main
-        </h3>
-
-        <audio controls>
-
-            <source
-                src="songs/pehle%20bhi%20main.mp3"
-                type="audio/mpeg">
-
-            Your browser does not support audio.
-
-        </audio>
-
-    </div>
-
-
-
-    <!-- KHARIYAT -->
-
-    <div class="option-card song-card"
-         data-song="khariyat">
-
-        <h3>
-            🌹 Khariyat Pocho
-        </h3>
-
-        <audio controls>
-
-            <source
-                src="songs/khariyat.mp3"
-                type="audio/mpeg">
-
-            Your browser does not support audio.
-
-        </audio>
-
-    </div>
-
-
-
-    <!-- AHOO -->
-
-    <div class="option-card song-card"
-         data-song="ahoo">
+    <div
+        class="option-card song-card"
+        data-song="ahoo"
+    >
 
         <h3>
             💖 Ahoo
         </h3>
 
-        <audio controls>
+        <audio controls preload="metadata">
 
             <source
-                src="songs/ahoo.mp3"
-                type="audio/mpeg">
+                src="Assets/songs/aho.mp3"
+                type="audio/mpeg"
+            >
 
             Your browser does not support audio.
 
@@ -1525,21 +1288,25 @@ audio {
     </div>
 
 
+    <!-- ==================================================
+         JONI JONOM
+    ================================================== -->
 
-    <!-- JONI JONOM -->
-
-    <div class="option-card song-card"
-         data-song="joni">
+    <div
+        class="option-card song-card"
+        data-song="joni"
+    >
 
         <h3>
             💛 Joni Jonom
         </h3>
 
-        <audio controls>
+        <audio controls preload="metadata">
 
             <source
-                src="songs/jonijonom.mp3"
-                type="audio/mpeg">
+                src="Assets/songs/jonoom.mp3"
+                type="audio/mpeg"
+            >
 
             Your browser does not support audio.
 
@@ -1548,23 +1315,125 @@ audio {
     </div>
 
 
+    <!-- ==================================================
+         KAHANI SONO
+    ================================================== -->
 
-    <div class="btn-group">
+    <div
+        class="option-card song-card"
+        data-song="kahani"
+    >
 
-        <button class="back-btn"
-                onclick="backFromMusic()">
+        <h3>
+            🤍 Kahani Sono
+        </h3>
 
-            ← Back To Main Menu
+        <audio controls preload="metadata">
 
-        </button>
+            <source
+                src="Assets/songs/kahani%20sono.mp3"
+                type="audio/mpeg"
+            >
+
+            Your browser does not support audio.
+
+        </audio>
 
     </div>
 
+
+    <!-- ==================================================
+         KHARIYAT POCHO
+    ================================================== -->
+
+    <div
+        class="option-card song-card"
+        data-song="khariyat"
+    >
+
+        <h3>
+            🌹 Khariyat Pocho
+        </h3>
+
+        <audio controls preload="metadata">
+
+            <source
+                src="Assets/songs/khariyat%20pocho.mp3"
+                type="audio/mpeg"
+            >
+
+            Your browser does not support audio.
+
+        </audio>
+
+    </div>
+
+
+    <!-- ==================================================
+         MESLE TO
+    ================================================== -->
+
+    <div
+        class="option-card song-card"
+        data-song="mesle"
+    >
+
+        <h3>
+            💙 Mesle To
+        </h3>
+
+        <audio controls preload="metadata">
+
+            <source
+                src="Assets/songs/mesle%20to.mp3"
+                type="audio/mpeg"
+            >
+
+            Your browser does not support audio.
+
+        </audio>
+
+    </div>
+
+
+    <!-- ==================================================
+         PEHLE BHI MAIN
+    ================================================== -->
+
+    <div
+        class="option-card song-card"
+        data-song="pehle"
+    >
+
+        <h3>
+            ❤️ Pehle Bhi Main
+        </h3>
+
+        <audio controls preload="metadata">
+
+            <source
+                src="Assets/songs/pehle%20bhi%20main.mp3"
+                type="audio/mpeg"
+            >
+
+            Your browser does not support audio.
+
+        </audio>
+
+    </div>
+
+
+    <button
+        class="back-btn"
+        onclick="backFromMusic()"
+    >
+        ← Back To Main Menu
+    </button>
+
 </div>
 
 
 </div>
-
 
 
 <script>
@@ -1574,6 +1443,7 @@ audio {
 ========================================================= */
 
 let selectedBurger = "";
+
 let selectedBurgerQuantity = 0;
 
 let canteenOrder = {
@@ -1612,6 +1482,10 @@ function nextStep(stepId) {
 
     step.classList.remove("hidden");
 
+    step.classList.remove("fade-in");
+
+    void step.offsetWidth;
+
     step.classList.add("fade-in");
 
 }
@@ -1634,6 +1508,8 @@ function backToMenu() {
 
 
 function showLoveOnly() {
+
+    stopAllSongs();
 
     nextStep("loveOnly");
 
@@ -1664,7 +1540,9 @@ function burgerCount(number) {
 
 function finishBurger(drink) {
 
-    document.getElementById("orderSummary").innerHTML = `
+    document.getElementById(
+        "orderSummary"
+    ).innerHTML = `
 
         <p>
             <strong>🍔 Burger:</strong>
@@ -1727,7 +1605,9 @@ function finishCanteen(spice) {
     canteenOrder.spice =
         spice;
 
-    document.getElementById("orderSummary").innerHTML = `
+    document.getElementById(
+        "orderSummary"
+    ).innerHTML = `
 
         <p>
             <strong>🥬 Vegetables:</strong>
@@ -1757,15 +1637,19 @@ function finishCanteen(spice) {
 
 
 /* =========================================================
-   ROOM
+   ROOM COOKING
 ========================================================= */
 
 function finishRoom(food) {
 
-    document.getElementById("orderSummary").innerHTML = `
+    document.getElementById(
+        "orderSummary"
+    ).innerHTML = `
 
         <p>
-            <strong>👩‍🍳 Special Room Order:</strong>
+            <strong>
+                👩‍🍳 Special Room Order:
+            </strong>
         </p>
 
         <p>
@@ -1780,7 +1664,7 @@ function finishRoom(food) {
 
 
 /* =========================================================
-   MUSIC
+   MUSIC PAGE
 ========================================================= */
 
 function showMusic() {
@@ -1824,11 +1708,12 @@ const romanticSubtitle =
 
 
 let heartInterval = null;
+
 let sparkleInterval = null;
 
 
 /* =========================================================
-   CREATE FLOATING HEART
+   CREATE HEART
 ========================================================= */
 
 function createHeart() {
@@ -1838,6 +1723,7 @@ function createHeart() {
 
     heart.className =
         "floating-heart";
+
 
     const hearts = [
 
@@ -1853,6 +1739,7 @@ function createHeart() {
 
     ];
 
+
     heart.innerText =
         hearts[
             Math.floor(
@@ -1861,11 +1748,14 @@ function createHeart() {
             )
         ];
 
+
     heart.style.left =
         Math.random() * 100 + "%";
 
+
     heart.style.animationDuration =
         (3 + Math.random() * 3) + "s";
+
 
     document.body.appendChild(heart);
 
@@ -1891,11 +1781,14 @@ function createSparkle() {
     sparkle.className =
         "sparkle";
 
+
     sparkle.style.left =
         Math.random() * 100 + "%";
 
+
     sparkle.style.top =
         Math.random() * 100 + "%";
+
 
     document.body.appendChild(sparkle);
 
@@ -1910,7 +1803,7 @@ function createSparkle() {
 
 
 /* =========================================================
-   SONG UNIQUE THEMES
+   SONG INFORMATION
 ========================================================= */
 
 function setSongTheme(songName) {
@@ -1926,45 +1819,10 @@ function setSongTheme(songName) {
 
     const songInfo = {
 
-        majboor: {
-
-            title: "💜 Majboor 💜",
-
-            subtitle:
-                "Some songs just feel different..."
-
-        },
-
-        mesle: {
-
-            title: "💙 Mesle To 💙",
-
-            subtitle:
-                "No one feels like you..."
-
-        },
-
-        pehle: {
-
-            title: "❤️ Pehle Bhi Main ❤️",
-
-            subtitle:
-                "Some memories never fade..."
-
-        },
-
-        khariyat: {
-
-            title: "🌹 Khariyat Pocho 🌹",
-
-            subtitle:
-                "I just want to know how you are..."
-
-        },
-
         ahoo: {
 
-            title: "💖 Ahoo 💖",
+            title:
+                "💖 Ahoo 💖",
 
             subtitle:
                 "A little music, a lot of love..."
@@ -1973,10 +1831,51 @@ function setSongTheme(songName) {
 
         joni: {
 
-            title: "💛 Joni Jonom 💛",
+            title:
+                "💛 Joni Jonom 💛",
 
             subtitle:
                 "Forever sounds beautiful with you..."
+
+        },
+
+        kahani: {
+
+            title:
+                "🤍 Kahani Sono 🤍",
+
+            subtitle:
+                "Listen to our story together..."
+
+        },
+
+        khariyat: {
+
+            title:
+                "🌹 Khariyat Pocho 🌹",
+
+            subtitle:
+                "I just want to know how you are..."
+
+        },
+
+        mesle: {
+
+            title:
+                "💙 Mesle To 💙",
+
+            subtitle:
+                "No one feels like you..."
+
+        },
+
+        pehle: {
+
+            title:
+                "❤️ Pehle Bhi Main ❤️",
+
+            subtitle:
+                "Some memories never fade..."
 
         }
 
@@ -2001,13 +1900,24 @@ function setSongTheme(songName) {
 
 
 /* =========================================================
-   START SONG ANIMATION
+   ALL SONGS
+========================================================= */
+
+const allSongs =
+    document.querySelectorAll("audio");
+
+
+/* =========================================================
+   START ROMANTIC ANIMATION
 ========================================================= */
 
 function startRomanticAnimation(song) {
 
     const card =
         song.closest(".song-card");
+
+
+    if (!card) return;
 
 
     const songName =
@@ -2017,13 +1927,9 @@ function startRomanticAnimation(song) {
     setSongTheme(songName);
 
 
-    if (card) {
-
-        card.classList.add(
-            "song-playing"
-        );
-
-    }
+    card.classList.add(
+        "song-playing"
+    );
 
 
     if (!heartInterval) {
@@ -2055,7 +1961,7 @@ function startRomanticAnimation(song) {
 
 
 /* =========================================================
-   STOP SONG ANIMATION
+   STOP ROMANTIC ANIMATION
 ========================================================= */
 
 function stopRomanticAnimation(song) {
@@ -2083,15 +1989,19 @@ function stopRomanticAnimation(song) {
 
     if (!anotherSongPlaying) {
 
-        romanticAnimation.className = "";
+        romanticAnimation.className =
+            "";
+
 
         clearInterval(
             heartInterval
         );
 
+
         clearInterval(
             sparkleInterval
         );
+
 
         heartInterval = null;
 
@@ -2102,10 +2012,11 @@ function stopRomanticAnimation(song) {
             .querySelectorAll(
                 ".floating-heart, .sparkle"
             )
-            .forEach(
-                element =>
-                    element.remove()
-            );
+            .forEach(element => {
+
+                element.remove();
+
+            });
 
     }
 
@@ -2113,14 +2024,8 @@ function stopRomanticAnimation(song) {
 
 
 /* =========================================================
-   SONG CONTROLS
+   ONE SONG AT A TIME
 ========================================================= */
-
-const allSongs =
-    document.querySelectorAll(
-        "audio"
-    );
-
 
 allSongs.forEach(song => {
 
@@ -2129,8 +2034,6 @@ allSongs.forEach(song => {
         "play",
         () => {
 
-
-            /* Stop all other songs */
 
             allSongs.forEach(
                 otherSong => {
@@ -2182,28 +2085,28 @@ allSongs.forEach(song => {
 
 
 /* =========================================================
-   STOP EVERYTHING
+   STOP ALL SONGS
 ========================================================= */
 
 function stopAllSongs() {
 
-    allSongs.forEach(
-        song => {
+    allSongs.forEach(song => {
 
-            song.pause();
+        song.pause();
 
-            song.currentTime = 0;
+        song.currentTime = 0;
 
-        }
-    );
+    });
 
 
-    romanticAnimation.className = "";
+    romanticAnimation.className =
+        "";
 
 
     clearInterval(
         heartInterval
     );
+
 
     clearInterval(
         sparkleInterval
@@ -2219,48 +2122,52 @@ function stopAllSongs() {
         .querySelectorAll(
             ".floating-heart, .sparkle"
         )
-        .forEach(
-            element =>
-                element.remove()
-        );
+        .forEach(element => {
+
+            element.remove();
+
+        });
 
 
     document
         .querySelectorAll(
             ".song-playing"
         )
-        .forEach(
-            card =>
-                card.classList.remove(
-                    "song-playing"
-                )
-        );
+        .forEach(card => {
+
+            card.classList.remove(
+                "song-playing"
+            );
+
+        });
 
 }
 
 
 /* =========================================================
-   TOUCH / CLICK HEART BURST
+   CLICK HEART BURST
 ========================================================= */
 
-function touchAnimation(x, y) {
+function touchAnimation(x,y) {
 
-
-    /* Ripple */
 
     const ripple =
         document.createElement(
             "div"
         );
 
+
     ripple.className =
         "click-ripple";
+
 
     ripple.style.left =
         x + "px";
 
+
     ripple.style.top =
         y + "px";
+
 
     document.body.appendChild(
         ripple
@@ -2271,10 +2178,8 @@ function touchAnimation(x, y) {
 
         ripple.remove();
 
-    }, 900);
+    },900);
 
-
-    /* Hearts */
 
     const heartSymbols = [
 
@@ -2294,10 +2199,12 @@ function touchAnimation(x, y) {
         i++
     ) {
 
+
         const heart =
             document.createElement(
                 "div"
             );
+
 
         heart.className =
             "click-heart";
@@ -2314,6 +2221,7 @@ function touchAnimation(x, y) {
 
         heart.style.left =
             x + "px";
+
 
         heart.style.top =
             y + "px";
@@ -2353,7 +2261,7 @@ function touchAnimation(x, y) {
 
             heart.remove();
 
-        }, 1100);
+        },1100);
 
     }
 
@@ -2361,7 +2269,7 @@ function touchAnimation(x, y) {
 
 
 /* =========================================================
-   EVERY TOUCH / CLICK
+   CLICK ANYWHERE
 ========================================================= */
 
 document.addEventListener(
@@ -2383,11 +2291,13 @@ document.addEventListener(
 
 setInterval(() => {
 
+
     if (
         !romanticAnimation.classList.contains(
             "active"
         )
     ) {
+
 
         if (
             Math.random() > 0.55
@@ -2399,9 +2309,12 @@ setInterval(() => {
 
     }
 
-}, 1800);
+
+},1800);
+
 
 </script>
 
 </body>
+
 </html>
