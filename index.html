@@ -378,22 +378,6 @@ section{
   transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s;
 }
 .photo-card:hover img{transform:scale(1.07);filter:saturate(1.08)}
-
-/* Rotate the three source photos that are stored sideways.
-   The cards themselves stay vertical; only the photographs are corrected. */
-.photo-card:nth-child(2) img,
-.photo-card:nth-child(4) img,
-.photo-card:nth-child(5) img{
-  transform:rotate(-90deg) scale(1.32);
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.photo-card:nth-child(2):hover img,
-.photo-card:nth-child(4):hover img,
-.photo-card:nth-child(5):hover img{
-  transform:rotate(-90deg) scale(1.40);
-}
 .photo-overlay{
   position:absolute;inset:0;
   display:flex;align-items:flex-end;
@@ -705,8 +689,8 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
       <div class="eyebrow">the girl at the center of it all</div>
       <h2>Meet<br><span>Sara.</span></h2>
       <p>
-        Almost a year ago, Ayan and Sara met at Jiamusi University.
-        They are both still students — Sara is studying medicine, and Ayan is studying computer science.
+        Almost a year ago, two people met at Jiamusi University.
+        One was studying medicine. One was studying CS.
         Somewhere between ordinary days, conversations and all the little moments,
         something very extraordinary happened.
       </p>
@@ -787,12 +771,12 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
   <div class="wrap story-grid">
     <div class="story-copy reveal-on-scroll">
       <div class="eyebrow">the part that is actually ours</div>
-      <h2>Almost one year.<br>A thousand little things.</h2>
+      <h2>One year.<br>A thousand little things.</h2>
       <p>
         Not every important thing has a photograph.
         Sometimes it's a conversation that lasted longer than planned,
         a stupid joke that somehow became an inside joke,
-        a normal university day that became important only because she was there.
+        a normal day at Jiamusi University that became important only because she was there.
       </p>
       <p>
         We don't need to invent memories for this website.
@@ -803,7 +787,7 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
     <div class="timeline reveal-on-scroll">
       <div class="t-item">
         <h3>Then — Jiamusi University</h3>
-        <p>Two students, two completely different fields, and one unexpected beginning.</p>
+        <p>Two students. Two completely different fields. One unexpected beginning.</p>
       </div>
       <div class="t-item">
         <h3>Now — Almost One Year</h3>
@@ -921,13 +905,13 @@ const songs = [
   ["Azizam","Assets/songs/azizam.mp3"],
   ["Bandari","Assets/songs/bandari.mp3"],
   ["Bihet Ghol Midam","Assets/songs/bihet ghol midam.mp3"],
-  ["Bizan Dutoram","Assets/songs/Bizan dutoram.mp3"],
+  ["Bizan Dutoram","Assets/songs/Bizan dutora.mp3"],
   ["Die With A Smile","Assets/songs/die with a smile.mp3"],
   ["Dil Man Khana Ye To","Assets/songs/dil man khana ye to.mp3"],
   ["Dilbar Shirin","Assets/songs/dilbar shirin.mp3"],
   ["Doneh Doneh","Assets/songs/doneh doneh.mp3"],
   ["Goleeband","Assets/songs/goleeband.mp3"],
-  ["Gui Mata","Assets/songs/gui mata.mp3"],
+  ["Guli Mata","Assets/songs/guli mata.mp3"],
   ["Habibi","Assets/songs/habibi.mp3"],
   ["Hawa Any Dey","Assets/songs/hawa any dey.mp3"],
   ["Hips Don't Lie","Assets/songs/hips don't lie.mp3"],
