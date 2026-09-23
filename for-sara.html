@@ -378,22 +378,6 @@ section{
   transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .7s;
 }
 .photo-card:hover img{transform:scale(1.07);filter:saturate(1.08)}
-
-/* Rotate the three source photos that are stored sideways.
-   The cards themselves stay vertical; only the photographs are corrected. */
-.photo-card:nth-child(2) img,
-.photo-card:nth-child(4) img,
-.photo-card:nth-child(5) img{
-  transform:rotate(-90deg) scale(1.32);
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.photo-card:nth-child(2):hover img,
-.photo-card:nth-child(4):hover img,
-.photo-card:nth-child(5):hover img{
-  transform:rotate(-90deg) scale(1.40);
-}
 .photo-overlay{
   position:absolute;inset:0;
   display:flex;align-items:flex-end;
@@ -674,6 +658,74 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
 }
+
+
+/* =========================================================
+   MOBILE PHOTO FIX — centered, single-column gallery
+   ========================================================= */
+.photo-card img{
+  object-fit:cover;
+  object-position:50% 50%;
+}
+
+@media (max-width: 800px){
+  .gallery{
+    grid-template-columns:1fr;
+    gap:18px;
+    width:100%;
+    max-width:720px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .photo-card,
+  .photo-card:nth-child(n){
+    grid-column:1;
+    width:100%;
+    height:clamp(360px, 78vw, 520px);
+    min-height:0;
+  }
+
+  .photo-card:nth-child(1),
+  .photo-card:nth-child(2),
+  .photo-card:nth-child(10),
+  .photo-card:nth-child(11){
+    height:clamp(390px, 88vw, 560px);
+  }
+
+  .photo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
+
+  .photo-overlay{
+    padding:20px;
+  }
+
+  .photo-overlay span{
+    font-size:clamp(21px, 5.5vw, 28px);
+    line-height:1.08;
+  }
+}
+
+@media (max-width: 520px){
+  section{padding-left:16px;padding-right:16px}
+  .gallery{gap:16px}
+  .photo-card,
+  .photo-card:nth-child(n){
+    height:390px;
+  }
+  .photo-card:nth-child(1),
+  .photo-card:nth-child(2),
+  .photo-card:nth-child(10),
+  .photo-card:nth-child(11){
+    height:430px;
+  }
+  .photo-overlay{padding:16px}
+}
+
 </style>
 </head>
 
@@ -705,8 +757,8 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
       <div class="eyebrow">the girl at the center of it all</div>
       <h2>Meet<br><span>Sara.</span></h2>
       <p>
-        Almost a year ago, Ayan and Sara met at Jiamusi University.
-        They are both still students — Sara is studying medicine, and Ayan is studying computer science.
+        Almost a year ago, two people met at university.
+        One was studying medicine. One was studying CS.
         Somewhere between ordinary days, conversations and all the little moments,
         something very extraordinary happened.
       </p>
@@ -767,17 +819,54 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
     </div>
 
     <div class="gallery">
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara1.jpg" alt="Sara portrait"><div class="photo-num">01</div><div class="photo-overlay"><span>She makes silence look cinematic.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara1.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara2.jpg" alt="Sara portrait"><div class="photo-num">02</div><div class="photo-overlay"><span>Some frames don't need a story.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara2.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara3.jpg" alt="Sara portrait"><div class="photo-num">03</div><div class="photo-overlay"><span>Somewhere between earth and stars.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara3.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara4.jpg" alt="Sara portrait"><div class="photo-num">04</div><div class="photo-overlay"><span>Dangerously beautiful.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara4.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara5.jpg" alt="Sara portrait"><div class="photo-num">05</div><div class="photo-overlay"><span>A whole landscape, somehow.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara5.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara6.jpg" alt="Sara portrait"><div class="photo-num">06</div><div class="photo-overlay"><span>She looks like a scene from a film that doesn't exist.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara6.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara7.jpg" alt="Sara portrait"><div class="photo-num">07</div><div class="photo-overlay"><span>The darker the frame, the brighter she becomes.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara7.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara8.jpg" alt="Sara portrait"><div class="photo-num">08</div><div class="photo-overlay"><span>Hidden behind leaves. Still impossible to miss.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara8.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara9.jpg" alt="Sara portrait"><div class="photo-num">09</div><div class="photo-overlay"><span>Some eyes don't need an introduction.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara9.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara10.jpg" alt="Sara portrait"><div class="photo-num">10</div><div class="photo-overlay"><span>Red belongs in this universe.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara10.jpg</div></div>
-      <div class="photo-card reveal-on-scroll"><img src="Assets/sara/sara11.jpg" alt="Sara portrait"><div class="photo-num">11</div><div class="photo-overlay"><span>And then the world gets quiet.</span></div><div class="no-photo">Add this image as<br>Assets/sara/sara11.jpg</div></div>
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_000427_960.jpg" alt="Sara photo 01">
+        <div class="photo-num">01</div>
+        <div class="photo-overlay"><span>She makes silence look cinematic.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_000427_960.jpg</div>
+      </div>
+
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_001328_076.jpg" alt="Sara photo 02">
+        <div class="photo-num">02</div>
+        <div class="photo-overlay"><span>Some frames don't need a story.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_001328_076.jpg</div>
+      </div>
+
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_002421_293.JPG" alt="Sara photo 03">
+        <div class="photo-num">03</div>
+        <div class="photo-overlay"><span>Somewhere between earth and stars.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_002421_293.JPG</div>
+      </div>
+
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_002937_139.JPG" alt="Sara photo 04">
+        <div class="photo-num">04</div>
+        <div class="photo-overlay"><span>Dangerously beautiful.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_002937_139.JPG</div>
+      </div>
+
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_003024_306.JPG" alt="Sara photo 05">
+        <div class="photo-num">05</div>
+        <div class="photo-overlay"><span>A whole landscape, somehow.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_003024_306.JPG</div>
+      </div>
+
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_003056_557.JPG" alt="Sara photo 06">
+        <div class="photo-num">06</div>
+        <div class="photo-overlay"><span>She looks like a scene from a film that doesn't exist.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_003056_557.JPG</div>
+      </div>
+
+      <div class="photo-card reveal-on-scroll">
+        <img src="Assets/songs/IMG_20251208_003650_092.JPG" alt="Sara photo 07">
+        <div class="photo-num">07</div>
+        <div class="photo-overlay"><span>The darker the frame, the brighter she becomes.</span></div>
+        <div class="no-photo">Make sure this file exists:<br>Assets/songs/IMG_20251208_003650_092.JPG</div>
+      </div>
     </div>
   </div>
 </section>
@@ -787,7 +876,7 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
   <div class="wrap story-grid">
     <div class="story-copy reveal-on-scroll">
       <div class="eyebrow">the part that is actually ours</div>
-      <h2>Almost one year.<br>A thousand little things.</h2>
+      <h2>One year.<br>A thousand little things.</h2>
       <p>
         Not every important thing has a photograph.
         Sometimes it's a conversation that lasted longer than planned,
@@ -803,7 +892,7 @@ audio{width:100%;height:36px;filter:invert(1) hue-rotate(290deg) saturate(.5);op
     <div class="timeline reveal-on-scroll">
       <div class="t-item">
         <h3>Then — Jiamusi University</h3>
-        <p>Two students, two completely different fields, and one unexpected beginning.</p>
+        <p>Two students. Two completely different fields. One unexpected beginning at Jiamusi University.</p>
       </div>
       <div class="t-item">
         <h3>Now — Almost One Year</h3>
@@ -921,7 +1010,7 @@ const songs = [
   ["Azizam","Assets/songs/azizam.mp3"],
   ["Bandari","Assets/songs/bandari.mp3"],
   ["Bihet Ghol Midam","Assets/songs/bihet ghol midam.mp3"],
-  ["Bizan Dutoram","Assets/songs/Bizan dutoram.mp3"],
+  ["Bizan Dutoram","Assets/songs/Bizan dutora.mp3"],
   ["Die With A Smile","Assets/songs/die with a smile.mp3"],
   ["Dil Man Khana Ye To","Assets/songs/dil man khana ye to.mp3"],
   ["Dilbar Shirin","Assets/songs/dilbar shirin.mp3"],
@@ -1157,3 +1246,4 @@ document.querySelectorAll(".photo-card img").forEach(img=>{
 </script>
 </body>
 </html>
+
